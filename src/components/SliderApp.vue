@@ -18,8 +18,10 @@
                 <p class="card__subtitle3">IPSUM !</p>
                 <p class="quote">LOREM IPSUM DOLOR SIT AMET,</p>
                 <p class="quote">CONSECTETUR ADIPISICING ELIT</p>
+            </div>
 
-
+            <div class="star">
+                <img src="../assets/png/Dawn.png" alt="star">
             </div>
 
         </div>
@@ -44,7 +46,7 @@
 
 .eclipse {
     position: absolute;
-    left: 76.2px;
+    left: 84.2px;
     top: -171.17px;
 }
 
@@ -71,7 +73,7 @@
 
 
 .card__content {
-    padding: 116px 252px 205px 152px;
+    padding: 116px 252px 205px 160px;
 }
 
 .card__title {
@@ -122,6 +124,22 @@
     margin-left: 284px;
     font-size: 15px;
     line-height: 150%;
+}
+
+.star{
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: 357px;
+  left: 0px;
+}
+.star img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .text-line {}
