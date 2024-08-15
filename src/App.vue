@@ -1,16 +1,16 @@
 <template>
-  <SliderComp />
+  <SliderApp />
   <FeedbackForm />
 </template>
 
 <script>
-import SliderComp from './components/SliderComp'
+import SliderApp from './components/SliderApp'
 import FeedbackForm from './components/FeedbackForm.vue'
 
 export default {
   name: 'App',
   components: {
-    SliderComp,
+    SliderApp,
     FeedbackForm
   }
 }
