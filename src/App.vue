@@ -1,25 +1,19 @@
 <template>
-  <FeedbackForm/>
+  <SliderComp />
+  <FeedbackForm />
 </template>
 
 <script>
+import SliderComp from './components/SliderComp'
 import FeedbackForm from './components/FeedbackForm.vue'
 
 export default {
   name: 'App',
   components: {
+    SliderComp,
     FeedbackForm
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>

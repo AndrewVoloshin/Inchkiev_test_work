@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="feedback_form">
+    <div class="slider">
         <h1>herer</h1>
     </div>
 </template>
