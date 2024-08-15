@@ -30,6 +30,11 @@
                      alt="eclipses">
             </div>
 
+            <div class="slider__button">
+                <img src="../assets/png/cursor_arrow.png"
+                     alt="next slide">
+            </div>
+
         </div>
     </div>
 </template>
@@ -162,6 +167,23 @@
 }
 
 .eclipses img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.slider__button {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 294px;
+    right: 74.3px;
+}
+
+.slider__button img {
     position: absolute;
     top: 0;
     left: 0;
