@@ -21,7 +21,13 @@
             </div>
 
             <div class="star">
-                <img src="../assets/png/Dawn.png" alt="star">
+                <img src="../assets/png/star.png"
+                     alt="star">
+            </div>
+
+            <div class="eclipses">
+                <img src="../assets/png/eclipses.png"
+                     alt="eclipses">
             </div>
 
         </div>
@@ -36,9 +42,12 @@
 
 .card {
     position: relative;
-    width: 1440px;
+    width: 1367px;
     height: 708px;
-    background-color: #027d84;
+    background-color: #027D84;
+    border-radius: 0 90px 90px 0;
+    border: 1px solid black;
+    overflow: hidden;
 }
 
 
@@ -69,6 +78,7 @@
     font-weight: 400;
     text-shadow:
         2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -126,14 +136,15 @@
     line-height: 150%;
 }
 
-.star{
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  top: 357px;
-  left: 0px;
+.star {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: 357px;
+    left: 0px;
 }
-.star img{
+
+.star img {
     position: absolute;
     top: 0;
     left: 0;
@@ -142,5 +153,20 @@
     width: 100%;
 }
 
-.text-line {}
+.eclipses {
+    width: 642.98px;
+    height: 646.58px;
+    position: absolute;
+    top: 49.55px;
+    right: 84.02px;
+}
+
+.eclipses img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
 </style>
