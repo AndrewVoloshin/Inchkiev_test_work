@@ -1,6 +1,10 @@
 <template>
-  <SliderApp />
-  <FeedbackForm />
+  <div class="app__wrap">
+    <div class="app__container">
+      <SliderApp />
+      <FeedbackForm />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -16,4 +20,13 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.app__wrap {
+  display: flex;
+  justify-content: center;
+}
+</style>
