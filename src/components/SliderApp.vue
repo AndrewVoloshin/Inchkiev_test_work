@@ -34,8 +34,7 @@ export default {
             const card3 = this.$refs[`card3`];
 
             if (cardClick === 1) {
-                // const card = this.$refs[`card${cardClick}`];
-                // const card2 = this.$refs[`card${2}`];
+
                 card1.$el.style.zIndex = 0;
                 card1.$el.classList.add('position3')
                 card1.$el.classList.remove('position1')
@@ -44,12 +43,9 @@ export default {
                 card2.$el.classList.add('position1')
                 card2.$el.classList.remove('position2')
 
-
                 card3.$el.style.zIndex = 2;
                 card3.$el.classList.add('position2')
                 card3.$el.classList.remove('position3')
-
-
 
             }
 
@@ -59,17 +55,13 @@ export default {
                 card1.$el.classList.add('position2')
                 card1.$el.classList.remove('position3')
 
-
                 card2.$el.style.zIndex = 0;
                 card2.$el.classList.add('position3')
                 card2.$el.classList.remove('position1')
 
-
                 card3.$el.style.zIndex = 3;
                 card3.$el.classList.add('position1')
                 card3.$el.classList.remove('position2')
-
-
 
             }
             if (cardClick === 3) {
@@ -90,34 +82,52 @@ export default {
 
             }
 
-
-
-
-            this.currentCard = cardClick
-            console.log('this.currentCard=>', this.currentCard);
-
-
         }
     },
     mounted() {
-        // const card = this.$refs[`card1`];
-        // card.$el.style.backgroundColor = 'yellow';
-        // console.log(card);
+   
     },
 }
 </script>
 
 <style scoped>
 .position3 {
-    left: 83px!important;
+    animation: moveAndReturn 1s forwards;
 }
 
+
+@keyframes moveAndReturn {
+    0% {
+        transform: translateX(0);
+        z-index: 4;
+    }
+
+    50% {
+        transform: translateX(-1600px);
+        z-index: 4;
+    }
+
+    75% {
+        transform: translateX(-1400px);
+        z-index: 0;
+    }
+
+    100% {
+        left: 83px;
+        z-index: 0;
+    }
+}
+
+
+
+
+
 .position2 {
-    left: 43px!important;
+    left: 43px !important;
 }
 
 .position1 {
-    left: 0px!important;
+    left: 0px !important;
 }
 
 .slider {
