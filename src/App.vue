@@ -25,8 +25,12 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+*{
+  box-sizing: border-box;
+}
+/* 
 .app__wrap {
   display: flex;
   justify-content: center;
-}
+} */
 </style>

@@ -76,12 +76,12 @@ export default {
     }
 
     50% {
-        transform: translateX(-1600px);
+        transform: translateX(-120vw);
         z-index: 4;
     }
 
     75% {
-        transform: translateX(-1400px);
+        transform: translateX(-80vw);
         z-index: 0;
     }
 
@@ -97,11 +97,6 @@ export default {
 
 .position1 {
     left: 0px !important;
-}
-
-.slider {
-    width: 1400px;
-    position: relative;
 }
 
 .card1 {

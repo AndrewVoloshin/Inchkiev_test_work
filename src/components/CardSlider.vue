@@ -1,10 +1,10 @@
 <script>
 export default {
-  methods: {
-    clickedCard() {
-      this.$emit('clickedCard', 'Hello from Child');
+    methods: {
+        clickedCard() {
+            this.$emit('clickedCard', 'Hello from Child');
+        }
     }
-  }
 }
 </script>
 
@@ -48,7 +48,7 @@ export default {
 <style scoped>
 .card {
     position: relative;
-    width: 1367px;
+    width: 1370px;
     height: 708px;
     background-color: #027D84;
     border-radius: 0 90px 90px 0;
@@ -190,5 +190,19 @@ export default {
     right: 0;
     bottom: 0;
     width: 100%;
+}
+
+@media screen and (min-width: 1441px) {
+    .card {
+        position: relative;
+        width: calc(100% - 83px);
+    }
+}
+
+@media screen and (min-width: 1700px) {
+ 
+    .card__content {
+        text-align: center;
+    }
 }
 </style>
