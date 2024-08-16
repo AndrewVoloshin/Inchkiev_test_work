@@ -1,5 +1,11 @@
 <script>
-
+export default {
+  methods: {
+    clickedCard() {
+      this.$emit('clickedCard', 'Hello from Child');
+    }
+  }
+}
 </script>
 
 <template>
@@ -29,7 +35,8 @@
                  alt="eclipses">
         </div>
 
-        <div class="slider__button">
+        <div class="slider__button"
+             @click="clickedCard">
             <img src="../assets/png/cursor_arrow.png"
                  alt="next slide">
         </div>
@@ -173,6 +180,7 @@
     position: absolute;
     top: 294px;
     right: 74.3px;
+    cursor: pointer;
 }
 
 .slider__button img {
