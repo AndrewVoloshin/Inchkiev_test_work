@@ -2,16 +2,13 @@
     <div class="slider">
         <CardSlider class="card1"
                     ref="card1"
-                    @clickedCard="handleChildEvent(1)"
-                    :style="{ zIndex: 3 }" />
+                    @clickedCard="reorderCards(1)" />
         <CardSlider class="card2"
                     ref="card2"
-                    @clickedCard="handleChildEvent(2)"
-                    :style="{ zIndex: 2 }" />
+                    @clickedCard="reorderCards(2)" />
         <CardSlider class="card3"
                     ref="card3"
-                    @clickedCard="handleChildEvent(3)"
-                    :style="{ zIndex: 1 }" />
+                    @clickedCard="reorderCards(3)" />
     </div>
 </template>
 
@@ -22,70 +19,47 @@ export default {
     components: {
         CardSlider,
     },
-    data() {
-        return {
-            currentCard: 1,
-        }
-    },
     methods: {
-        handleChildEvent(cardClick) {
+        reorderCards(cardClick) {
             const card1 = this.$refs[`card1`];
             const card2 = this.$refs[`card2`];
             const card3 = this.$refs[`card3`];
 
             if (cardClick === 1) {
-
-                card1.$el.style.zIndex = 0;
-                card1.$el.classList.add('position3')
-                card1.$el.classList.remove('position1')
-
-                card2.$el.style.zIndex = 3;
-                card2.$el.classList.add('position1')
-                card2.$el.classList.remove('position2')
-
-                card3.$el.style.zIndex = 2;
-                card3.$el.classList.add('position2')
-                card3.$el.classList.remove('position3')
-
+                this.moveToThirdPosition(card1)
+                this.moveToFirstPosition(card2)
+                this.moveToSecondPosition(card3)
             }
 
             if (cardClick === 2) {
-
-                card1.$el.style.zIndex = 2;
-                card1.$el.classList.add('position2')
-                card1.$el.classList.remove('position3')
-
-                card2.$el.style.zIndex = 0;
-                card2.$el.classList.add('position3')
-                card2.$el.classList.remove('position1')
-
-                card3.$el.style.zIndex = 3;
-                card3.$el.classList.add('position1')
-                card3.$el.classList.remove('position2')
-
+                this.moveToSecondPosition(card1)
+                this.moveToThirdPosition(card2)
+                this.moveToFirstPosition(card3)
             }
             if (cardClick === 3) {
-                card1.$el.style.zIndex = 3;
-                card1.$el.classList.add('position1')
-                card1.$el.classList.remove('position2')
-
-
-                card2.$el.style.zIndex = 2;
-                card2.$el.classList.add('position2')
-                card2.$el.classList.remove('position3')
-
-
-                card3.$el.style.zIndex = 0;
-                card3.$el.classList.add('position3')
-                card3.$el.classList.remove('position1')
-
-
+                this.moveToFirstPosition(card1)
+                this.moveToSecondPosition(card2)
+                this.moveToThirdPosition(card3)
             }
+        },
 
-        }
-    },
-    mounted() {
-   
+        moveToFirstPosition(card) {
+            card.$el.style.zIndex = 3;
+            card.$el.classList.add('position1')
+            card.$el.classList.remove('position2')
+        },
+
+        moveToSecondPosition(card) {
+            card.$el.style.zIndex = 2;
+            card.$el.classList.add('position2')
+            card.$el.classList.remove('position3')
+        },
+
+        moveToThirdPosition(card) {
+            card.$el.style.zIndex = 1;
+            card.$el.classList.add('position3')
+            card.$el.classList.remove('position1')
+        },
     },
 }
 </script>
@@ -94,7 +68,6 @@ export default {
 .position3 {
     animation: moveAndReturn 1s forwards;
 }
-
 
 @keyframes moveAndReturn {
     0% {
@@ -117,10 +90,6 @@ export default {
         z-index: 0;
     }
 }
-
-
-
-
 
 .position2 {
     left: 43px !important;
