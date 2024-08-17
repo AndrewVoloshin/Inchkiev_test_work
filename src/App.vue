@@ -1,20 +1,20 @@
 <template>
   <div class="app__wrap">
     <div class="app__container">
-      <SliderApp />
+      <!-- <SliderApp /> -->
       <FeedbackForm />
     </div>
   </div>
 </template>
 
 <script>
-import SliderApp from './components/SliderApp'
+// import SliderApp from './components/SliderApp'
 import FeedbackForm from './components/FeedbackForm.vue'
 
 export default {
   name: 'App',
   components: {
-    SliderApp,
+    // SliderApp,
     FeedbackForm
   }
 }
