@@ -1,162 +1,272 @@
 <script>
+export default {
+    data() {
+        return {
+            formData: {
+                lastName: '',
+                firstName: '',
+                organization: '',
+                role: 'СПОЖИВАЧ',
+                subject: '',
+                message: '',
+                email: '',
+                country: '',
+                city: '',
+                index: '',
+                address: '',
+                phone: ''
+            },
+            formattedPhone: '',
 
+            errors: {
+                lastName: false,
+                firstName: false,
+                organization: false,
+                subject: false,
+                message: false,
+                email: false,
+                country: false,
+                city: false,
+                index: false,
+                address: false,
+                phone: false,
+            },
+
+            validationPatterns: {
+                lastName: /^[А-Яа-яҐґЄєЇїІі]+$/,
+                firstName: /^[А-Яа-яҐґЄєЇїІі]+$/,
+                organization: /^[А-Яа-яҐґЄєЇїІі]*$/,
+                country: /^[А-Яа-яҐґЄєЇїІі]+$/,
+                city: /^[А-Яа-яҐґЄєЇїІі]+$/,
+                index: /^\d+$/,
+                address: /^[А-Яа-яҐґЄєЇїІі\d/\-,]+$/,
+                phone: /^\(\d{3}\) \d{3}-\d{2}-\d{2}$/,
+                email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                subject: /^[А-Яа-яҐґЄєЇїІі\d\s\-,]*$/,
+                message: /^[А-Яа-яҐґЄєЇїІі\d\s\-,]+$/
+            }
+        };
+    },
+    methods: {
+        handleSubmit() {
+            if (this.validateForm()) {
+                alert(JSON.stringify(this.formData, null, 2));
+            } else {
+                alert('Будь ласка, заповніть всі обов\'язкові поля правильно.');
+            }
+        },
+
+        validateForm() {
+            let valid = true;
+
+            Object.keys(this.errors).forEach(key => {
+                this.errors[key] = !this.validateField(key, this.formData[key]);
+                if (this.errors[key]) valid = false;
+            });
+
+            return valid;
+        },
+
+        validateField(key, value) {
+            const pattern = this.validationPatterns[key];
+            if (key === 'phone') return this.validatePhoneField(pattern)
+            return pattern ? pattern.test(value) : true;
+        },
+
+        validatePhoneField(pattern) {
+            return pattern?.test(this.formattedPhone)
+        },
+
+        formatPhone(event) {
+            const input = event.target.value.replace(/\D/g, '');
+            let formattedInput = '';
+
+            if (input.length > 0) {
+                formattedInput += '(' + input.substring(0, 3);
+            }
+            if (input.length >= 4) {
+                formattedInput += ') ' + input.substring(3, 6);
+            }
+            if (input.length >= 7) {
+                formattedInput += '-' + input.substring(6, 8);
+            }
+            if (input.length >= 9) {
+                formattedInput += '-' + input.substring(8, 10);
+            }
+
+            this.formattedPhone = formattedInput;
+            this.formData.phone = input;
+        }
+    }
+};
 </script>
+
+
 
 <template>
     <div class="feedback-form">
-        <form>
+        <form @submit.prevent="handleSubmit">
             <div class="feedback-form__container">
-
-
-
                 <div class="column">
-
+                    <!-- Personal Information -->
                     <div class="greeting__container">
                         <h2 class="title greeting__title">ПРЕДСТАВТЕСЯ, БУДЬ ЛАСКА</h2>
 
                         <div class="greeting__content">
                             <label class="label greeting__label">* ПРІЗВИЩЕ</label>
-                            <input class="input greeting__input"
-                                   type="text">
+                            <input v-model="formData.lastName"
+                                   :class="{ 'input greeting__input error': errors.lastName }"
+                                   type="text"
+                                   @input="validateLastName" />
                         </div>
 
                         <div class="greeting__content">
                             <label class="label greeting__label">* ІМ'Я</label>
-                            <input class="input greeting__input"
-                                   type="text">
+                            <input v-model="formData.firstName"
+                                   :class="{ 'input greeting__input error': errors.firstName }"
+                                   type="text"
+                                   @input="validateFirstName" />
                         </div>
 
                         <div class="greeting__content">
                             <label class="label greeting__label">ОРГАНІЗАЦІЯ ТА ПОСАДА</label>
-                            <input class="input greeting__input"
-                                   type="text">
+                            <input v-model="formData.organization"
+                                   :class="{ 'input greeting__input error': errors.organization }"
+                                   type="text"
+                                   @input="validateOrganization" />
                         </div>
 
                         <div class="greeting__content">
                             <label class="custom-radio">
-                                <input type="radio"
-                                       name="option"
-                                       value="СПОЖИВАЧ"
-                                       checked>
+                                <input v-model="formData.role"
+                                       type="radio"
+                                       name="role"
+                                       value="СПОЖИВАЧ" />
                                 <span class="checkmark"></span>
                                 СПОЖИВАЧ
                             </label>
-                            <br>
+                            <br />
                             <label class="custom-radio">
-                                <input type="radio"
-                                       name="option"
-                                       value="МЕДИЧНИЙ ПРАЦІВНИК">
+                                <input v-model="formData.role"
+                                       type="radio"
+                                       name="role"
+                                       value="МЕДИЧНИЙ ПРАЦІВНИК" />
                                 <span class="checkmark"></span>
                                 МЕДИЧНИЙ ПРАЦІВНИК
                             </label>
-                            <br>
+                            <br />
                             <label class="custom-radio">
-                                <input type="radio"
-                                       name="option"
-                                       value="ЖУРНАЛІСТ">
+                                <input v-model="formData.role"
+                                       type="radio"
+                                       name="role"
+                                       value="ЖУРНАЛІСТ" />
                                 <span class="checkmark"></span>
                                 ЖУРНАЛІСТ
                             </label>
                         </div>
-
-
-
-
                     </div>
 
-
+                    <!-- Message -->
                     <div class="message__container">
                         <h2 class="title message__title">ПОВІДОМЛЕННЯ</h2>
 
-
                         <div class="message__content">
                             <label class="label message__label">ТЕМА ПОВІДОМЛЕННЯ</label>
-                            <input class="input message__input"
-                                   type="text">
+                            <input v-model="formData.subject"
+                                   :class="{ 'input message__input error': errors.subject }"
+                                   type="text"
+                                   @input="validateSubject" />
                         </div>
 
                         <div class="message__content">
                             <label class="label message__label">* ПОВІДОМЛЕННЯ</label>
-                            <textarea class="textarea"
+                            <textarea v-model="formData.message"
+                                      :class="{ 'textarea error': errors.message }"
                                       name="message"
                                       rows="5"
-                                      cols="33"></textarea>
-
+                                      @input="validateMessage"></textarea>
                         </div>
-
                     </div>
-
                 </div>
 
                 <div class="column">
-
+                    <!-- Contact Information -->
                     <div class="contact__container">
                         <h2 class="title contact__title">КОНТАКТНА ІНФОРМАЦІЯ</h2>
 
-
                         <div class="contact__content">
                             <label class="label contact__label">* EMAIL</label>
-                            <input class="input contact__input"
-                                   type="text">
+                            <input v-model="formData.email"
+                                   :class="{ 'input contact__input error': errors.email }"
+                                   type="email"
+                                   @input="validateEmail" />
                         </div>
 
                         <div class="contact__content">
                             <label class="label contact__label">* КРАЇНА</label>
-                            <input class="input contact__input"
-                                   type="text">
+                            <input v-model="formData.country"
+                                   :class="{ 'input contact__input error': errors.country }"
+                                   type="text"
+                                   @input="validateCountry" />
                         </div>
                         <div class="contact__content">
                             <label class="label contact__label">* МІСТО</label>
-                            <input class="input contact__input"
-                                   type="text">
+                            <input v-model="formData.city"
+                                   :class="{ 'input contact__input error': errors.city }"
+                                   type="text"
+                                   @input="validateCity" />
                         </div>
 
                         <div class="contact__content">
                             <label class="label contact__label">* ІНДЕКС</label>
-                            <input class="input contact__input"
-                                   type="text">
+                            <input v-model="formData.index"
+                                   :class="{ 'input contact__input error': errors.index }"
+                                   type="text"
+                                   @input="validateIndex" />
                         </div>
 
                         <div class="contact__content">
                             <label class="label contact__label">* АДРЕСА</label>
-                            <input class="input contact__input"
-                                   type="text">
+                            <input v-model="formData.address"
+                                   :class="{ 'input contact__input error': errors.address }"
+                                   type="text"
+                                   @input="validateAddress" />
                         </div>
 
                         <div class="contact__content">
                             <label class="label contact__label">* ТЕЛЕФОН</label>
-
-
-                            <input class="input contact__input"
+                            <input v-model="formattedPhone"
+                                   @input="formatPhone"
+                                   :class="{ 'input contact__input error': errors.phone }"
                                    type="text"
                                    id="phone"
-                                   name="phone"
                                    placeholder="(___) ___-__-__"
-                                   maxlength="14">
+                                   maxlength="15" />
                         </div>
-
-
-
-
                     </div>
 
-                    <button class="button-submit" type="button">відправити</button>
-
+                    <button class="button-submit"
+                            type="submit">відправити</button>
                 </div>
-
             </div>
         </form>
     </div>
 </template>
 
-<style scoped>
 
-.button-submit{
-width: 246px;
-height: 31px;
-color:white;
-font-size: 22px;
-background-color: #464646;
+<style scoped>
+input.error,
+textarea.error {
+    border: 1px solid #d9534f;
+    background-color: #f9d6d5;
+}
+
+.button-submit {
+    width: 246px;
+    height: 31px;
+    color: white;
+    font-size: 22px;
+    background-color: #464646;
 }
 
 .title {
@@ -174,7 +284,7 @@ background-color: #464646;
     margin-bottom: 18px;
 }
 
-.input {
+input {
     width: 246px;
     height: 31px;
 }
@@ -331,7 +441,7 @@ input[type="radio"] {
 
 .message__input {}
 
-.textarea {
+textarea {
     width: 246px;
     height: 85px;
 }
