@@ -376,18 +376,15 @@ input[type="radio"] {
     margin-bottom: 10px;
 }
 
-
-
-
 .greeting__label {
     margin-bottom: 3px;
 }
-
 
 .feedback-form {
     display: flex;
     justify-content: center;
     margin-top: 60px;
+    width: 100%;
 }
 
 .feedback-form__container {
@@ -395,13 +392,9 @@ input[type="radio"] {
     gap: 133px;
 }
 
-.column {}
-
 .greeting__container {
     margin-bottom: 39px;
 }
-
-
 
 .contact__content:nth-child(2) {
     margin-bottom: 17px;
@@ -423,8 +416,6 @@ input[type="radio"] {
     margin-bottom: 23px;
 }
 
-
-
 .message__container {}
 
 .message__title {}
@@ -433,29 +424,89 @@ input[type="radio"] {
     margin-bottom: 22px;
 }
 
-
-
-.message__label {}
-
-.input {}
-
-.message__input {}
-
 textarea {
     width: 246px;
     height: 85px;
 }
 
-
-
-
-.contact__label {}
-
-.contact__input {}
-
-.message__container {}
-
 .contact__container {
     margin-bottom: 52px;
+}
+
+input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.greeting__title,
+.message__title,
+.contact__title {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.greeting__content,
+.message__content,
+.contact__content {
+    margin-bottom: 15px;
+}
+
+input.error,
+textarea.error {
+    border: 1px solid #d9534f;
+    background-color: #f9d6d5;
+}
+
+.button-submit {
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-size: 18px;
+    background-color: #464646;
+    border: none;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .feedback-form__container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .column {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .button-submit {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 16px;
+    }
+
+    input,
+    textarea {
+        width: calc(100% - 20px);
+    }
+
+    .feedback-form__container {
+        padding: 10px;
+    }
+
+    .button-submit {
+        height: 50px;
+        font-size: 16px;
+    }
 }
 </style>
