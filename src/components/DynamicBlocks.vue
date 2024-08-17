@@ -1,19 +1,33 @@
 <template>
 
-    <div class="dynamic-blocks">
-
-        <div class="sort-buttons">
-            <button @click="sortBy('popularity')">Популярність</button>
-            <button @click="sortBy('release_date')">Дата релізу</button>
-            <button @click="sortBy('vote_average')">Оцінка</button>
+    <div class="sort-buttons">
+        <div class="sort-buttons__container">
+            <label class="sort-button">
+                <input type="radio"
+                       name="sort"
+                       value="popularity"
+                       @change="sortAlphabetically()" />
+                відсортувати блоки за заголовком відповідно до алфавітного порядку
+            </label>
+            <label class="sort-button">
+                <input type="radio"
+                       name="sort"
+                       value="release_date"
+                       @change="sort('release_date')" />
+                вивести всі блоки у форматі "зображення - зліва, текст - справа"
+            </label>
+            <label class="sort-button">
+                <input type="radio"
+                       name="sort"
+                       value="vote_average"
+                       @change="sortBy('vote_average')" />
+                вивести всі блоки у форматі "зображення - зліва, текст - справа" і навпаки в шаховому порядку
+            </label>
         </div>
+    </div>
 
-
-
+    <div class="dynamic-blocks">
         <div class="dynamic-blocks__container">
-
-
-
             <div class="dynamic-blocks__content"
                  v-for="movie in movies"
                  :key="movie.id">
@@ -26,9 +40,6 @@
                     <p class="block__description">{{ movie.overview }}</p>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </template>
@@ -38,26 +49,12 @@ export default {
     data() {
         return {
             movies: [],
-            sortByCriteria: 'popularity',
-
 
             moviesUrl: 'https://api.themoviedb.org/3/discover/movie?api_key=3685d3eb8695f087227e0ee980f3ae4d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1',
             picUrl: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/',
         };
     },
-    //   computed: {
-    //     sortedMovies() {
-    //       return this.movies.slice().sort((a, b) => {
-    //         if (this.sortByCriteria === 'popularity') {
-    //           return b.popularity - a.popularity;
-    //         } else if (this.sortByCriteria === 'release_date') {
-    //           return new Date(b.release_date) - new Date(a.release_date);
-    //         } else if (this.sortByCriteria === 'vote_average') {
-    //           return b.vote_average - a.vote_average;
-    //         }
-    //       });
-    //     }
-    //   },
+
     methods: {
         async fetchMovies() {
             try {
@@ -70,9 +67,12 @@ export default {
                 return []
             }
         },
-        sortBy(criteria) {
-            this.sortByCriteria = criteria;
+
+        sortAlphabetically() {
+            this.movies.sort((a, b) => a.title.localeCompare(b.title));
         }
+
+
     },
     async mounted() {
         this.movies = await this.fetchMovies();
@@ -107,10 +107,8 @@ export default {
 
 
 .dynamic-blocks__content:nth-child(even) {
-
     padding: 30px 40px 30px 53px;
     justify-content: space-between;
-
 }
 
 .dynamic-blocks__content:nth-child(even) .block__img {
@@ -156,5 +154,85 @@ h3 {
     font-size: 14px;
     line-height: 15px;
     font-weight: 400px;
+}
+
+.sort-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 79px;
+    margin-bottom: 90px;
+}
+
+.sort-buttons__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    margin-left: -47px;
+}
+
+.sort-button input[type="radio"] {
+    width: 15px;
+    height: 15px;
+}
+
+.sort-button {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    gap: 19px;
+}
+
+@media (max-width: 768px) {
+    .dynamic-blocks__container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .dynamic-blocks__content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
+    .block__img {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .block__text {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .block__description {
+        width: 100%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dynamic-blocks__content {
+        padding: 15px 10px;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .block__description {
+        font-size: 12px;
+        line-height: 14px;
+    }
 }
 </style>
