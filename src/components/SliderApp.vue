@@ -3,12 +3,12 @@
         <CardSlider class="card1"
                     ref="card1"
                     @clickedCard="reorderCards(1)" />
-        <CardSlider class="card2"
+        <!-- <CardSlider class="card2"
                     ref="card2"
                     @clickedCard="reorderCards(2)" />
         <CardSlider class="card3"
                     ref="card3"
-                    @clickedCard="reorderCards(3)" />
+                    @clickedCard="reorderCards(3)" /> -->
     </div>
 </template>
 
