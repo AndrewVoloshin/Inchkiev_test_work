@@ -5,22 +5,19 @@
             <label class="sort-button">
                 <input type="radio"
                        name="sort"
-                       value="popularity"
-                       @change="sortAlphabetically()" />
+                       @change="sortByAlphabetically()" />
                 відсортувати блоки за заголовком відповідно до алфавітного порядку
             </label>
             <label class="sort-button">
                 <input type="radio"
                        name="sort"
-                       value="release_date"
-                       @change="sort('release_date')" />
+                       @change="sortByPicLeftT()" />
                 вивести всі блоки у форматі "зображення - зліва, текст - справа"
             </label>
             <label class="sort-button">
                 <input type="radio"
                        name="sort"
-                       value="vote_average"
-                       @change="sortBy('vote_average')" />
+                       @change="sortByChessPattern()" />
                 вивести всі блоки у форматі "зображення - зліва, текст - справа" і навпаки в шаховому порядку
             </label>
         </div>
@@ -42,6 +39,7 @@
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -49,7 +47,7 @@ export default {
     data() {
         return {
             movies: [],
-
+            styleEChessPattern: null,
             moviesUrl: 'https://api.themoviedb.org/3/discover/movie?api_key=3685d3eb8695f087227e0ee980f3ae4d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1',
             picUrl: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/',
         };
@@ -68,15 +66,48 @@ export default {
             }
         },
 
-        sortAlphabetically() {
+        sortByAlphabetically() {
             this.movies.sort((a, b) => a.title.localeCompare(b.title));
-        }
+        },
 
+        sortByPicLeftT() {
+            if (this.styleChessPattern) {
+                document.head.removeChild(this.styleChessPattern);
+                this.styleChessPattern = null;
+            }
 
+        },
+
+        sortByChessPattern() {
+            if (this.styleChessPattern) return
+            this.addStyleChessPattern()
+        },
+
+        addStyleChessPattern() {
+            const style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = `
+                .dynamic-blocks__content:nth-child(even) {
+                    padding: 30px 40px 30px 53px;
+                    justify-content: space-between;
+                }
+
+                .dynamic-blocks__content:nth-child(even) .block__img {
+                    order: 2;
+                }
+
+                .dynamic-blocks__content:nth-child(even) .block__text {
+                    order: 1;
+                    margin-top: -9px;
+                }
+            `;
+            this.styleChessPattern = style;
+            document.head.appendChild(style);
+        },
     },
     async mounted() {
         this.movies = await this.fetchMovies();
-        console.log(this.movies);
+        this.addStyleChessPattern()
     }
 };
 </script>
@@ -103,21 +134,6 @@ export default {
 
 .dynamic-blocks__content:first-child {
     border: 1px solid black;
-}
-
-
-.dynamic-blocks__content:nth-child(even) {
-    padding: 30px 40px 30px 53px;
-    justify-content: space-between;
-}
-
-.dynamic-blocks__content:nth-child(even) .block__img {
-    order: 2;
-}
-
-.dynamic-blocks__content:nth-child(even) .block__text {
-    order: 1;
-    margin-top: -9px;
 }
 
 .block__img {
@@ -218,9 +234,17 @@ h3 {
         font-size: 24px;
         line-height: 32px;
     }
+
+    .sort-buttons__container {
+        margin-left: 20px;
+    }
 }
 
 @media (max-width: 480px) {
+    .sort-buttons__container {
+        margin-left: 20px;
+    }
+
     .dynamic-blocks__content {
         padding: 15px 10px;
     }
