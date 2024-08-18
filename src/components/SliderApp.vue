@@ -22,11 +22,7 @@ export default {
     components: {
         CardSlider,
     },
-    // data() {
-    //     return {
-    //         cardNumber: 1,
-    //     }
-    // },
+
     methods: {
         reorderCards(cardClick) {
             this.cardNumber = cardClick
@@ -129,5 +125,42 @@ export default {
     left: 83px;
     z-index: 1;
     background-color: #AFB3B4;
+}
+
+@media screen and (max-width: 768px) {
+
+    @keyframes moveAndReturn {
+        0% {
+            transform: translateX(0);
+            z-index: 4;
+        }
+
+        50% {
+            transform: translateX(-120vw);
+            z-index: 4;
+        }
+
+        75% {
+            transform: translateX(-80vw);
+            z-index: 0;
+        }
+
+        100% {
+            left: 38px;
+            z-index: 0;
+        }
+    }
+
+    .position2 {
+        left: 19px !important;
+    }
+
+    .card2 {
+        left: 19px;
+    }
+
+    .card3 {
+        left: 38px;
+    }
 }
 </style>

@@ -289,20 +289,53 @@ export default {
 }
 
 
-@media screen and (min-width: 768px) {
-    .card {}
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 770px) {
+    .eclipses-css {
+        display: none;
+    }
+   
 }
 
 
+@media screen and (min-width: 992px) {
+    .eclipses-img {
+        display: block;
+    }
+
+}
+
+
+
+
+
+
 @media screen and (min-width: 1440px) {
+
+
+
+
+
+
     .card {
         position: relative;
         width: calc(100% - 83px);
     }
 
-    .eclipses-img {
-        display: block;
+
+
+
+   
+
+    .eclipse-pagecount {
+        display: none;
     }
+
+
+
 }
 
 
