@@ -2,13 +2,16 @@
     <div class="slider">
         <CardSlider class="card1"
                     ref="card1"
+                    :cardNumber="1"
                     @clickedCard="reorderCards(1)" />
-        <!-- <CardSlider class="card2"
+        <CardSlider class="card2"
                     ref="card2"
+                    :cardNumber="2"
                     @clickedCard="reorderCards(2)" />
         <CardSlider class="card3"
                     ref="card3"
-                    @clickedCard="reorderCards(3)" /> -->
+                    :cardNumber="3"
+                    @clickedCard="reorderCards(3)" />
     </div>
 </template>
 
@@ -19,8 +22,14 @@ export default {
     components: {
         CardSlider,
     },
+    // data() {
+    //     return {
+    //         cardNumber: 1,
+    //     }
+    // },
     methods: {
         reorderCards(cardClick) {
+            this.cardNumber = cardClick
             const card1 = this.$refs[`card1`];
             const card2 = this.$refs[`card2`];
             const card3 = this.$refs[`card3`];

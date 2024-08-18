@@ -1,8 +1,13 @@
 <script>
 export default {
+    props: {
+        cardNumber: {
+            type: Number
+        }
+    },
     methods: {
         clickedCard() {
-            this.$emit('clickedCard', 'Hello from Child');
+            this.$emit('clickedCard', 'Clicked Card');
         }
     }
 }
@@ -48,12 +53,8 @@ export default {
         </div>
 
         <div class="eclipse-pagecount">
-            <div class="eclipse-pagecount__text">1/3</div>
+            <div class="eclipse-pagecount__text">{{ cardNumber }}/3</div>
         </div>
-
-
-
-
 
         <div class="slider__button"
              @click="clickedCard">
@@ -69,9 +70,6 @@ export default {
 .card {
     width: 730px;
     height: 900px;
-
-
-
     position: relative;
     border-radius: 0 65px 65px 0;
     background-color: #027D84;
@@ -130,9 +128,7 @@ export default {
     font-size: 40px;
     margin: 0;
     margin-left: 43px;
-    /* margin-bottom: 15px; */
     line-height: 52px;
-
 }
 
 .card__subtitle2 {
@@ -277,7 +273,7 @@ export default {
     position: absolute;
     left: 21px;
     bottom: 31.72px;
-    width:101.49px ;
+    width: 101.49px;
     height: 52.69px;
     border-radius: 50%;
     border: 2px solid white;
@@ -291,7 +287,6 @@ export default {
     font-weight: 700;
     /* line-height: 64px; */
 }
-
 
 
 @media screen and (min-width: 768px) {
@@ -309,9 +304,6 @@ export default {
         display: block;
     }
 }
-
-
-
 
 
 
