@@ -70,6 +70,10 @@ export default {
 </script>
 
 <style scoped>
+.slider {
+    height: 900px;
+}
+
 .position3 {
     animation: moveAndReturn 1s forwards;
 }
@@ -146,7 +150,7 @@ export default {
         }
 
         100% {
-            left: 38px;
+            left: 37px;
             z-index: 0;
         }
     }
@@ -160,7 +164,15 @@ export default {
     }
 
     .card3 {
-        left: 38px;
+        left: 37px;
     }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .slider {
+        height: 708px;
+    }
+
 }
 </style>

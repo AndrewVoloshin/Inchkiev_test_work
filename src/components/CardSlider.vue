@@ -77,8 +77,6 @@ export default {
     overflow: hidden;
     color: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    ;
-
 }
 
 .eclipse {
@@ -253,7 +251,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .fullimg {
@@ -287,7 +284,6 @@ export default {
 .eclipse-pagecount__text {
     font-size: 12px;
     font-weight: 700;
-    /* line-height: 64px; */
 }
 
 
@@ -296,7 +292,6 @@ export default {
     .card__content {
         text-align: center;
     }
-
 }
 
 
@@ -326,20 +321,30 @@ export default {
 
 }
 
+@media screen and (max-width: 766px) {
+    .card{
+        width: 100%;
+
+    }
+
+    .card__content{
+        width: 100%;
+        padding: 107px  0px 0px;
+    }
+}
 
 
 
-@media screen and (min-width: 770px) and (max-width: 1439px) {
+@media screen and (min-width: 769px) and (max-width: 1439px) {
     .card {
         position: relative;
-        width: calc(100% - 83px);
+        width: calc(100% - 84px);
     }
 }
 
 
 
 @media screen and (min-width: 1440px) {
-
     .card {
         position: relative;
     }
@@ -376,12 +381,7 @@ export default {
     .card__subtitle1 {
         font-size: 60px;
         text-shadow:
-            2px 2px 4px rgba(0, 0, 0, 0.5),
-
-            -1px -1px 0 rgba(0, 0, 0, 0.8),
-            1px -1px 0 rgba(0, 0, 0, 0.8),
-            -1px 1px 0 rgba(0, 0, 0, 0.8),
-            1px 1px 2px rgba(0, 0, 0, 0.5);
+            0px 4px 4px rgba(0, 0, 0, 0.25);
         margin-bottom: 11px;
         line-height: 70px;
 
@@ -417,12 +417,6 @@ export default {
         top: 48.55px;
     }
 
-
-    /* .slider__button {
-        top: 294px;
-        right: 73.3px;
-    } */
-
     .eclipse-pagecount {
         display: none;
     }
@@ -431,10 +425,7 @@ export default {
         margin: 0;
         margin-left: 284px;
     }
-
 }
-
-
 
 @media screen and (min-width: 1441px) {
     .card {
@@ -444,7 +435,6 @@ export default {
 }
 
 @media screen and (min-width: 1700px) {
-
     .card__content {
         text-align: center;
     }
