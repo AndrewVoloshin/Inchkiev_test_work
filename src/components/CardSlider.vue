@@ -76,8 +76,9 @@ export default {
     border: 1px solid black;
     overflow: hidden;
     color: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
-        
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    ;
+
 }
 
 .eclipse {
@@ -252,7 +253,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
 }
 
 .fullimg {
@@ -290,25 +291,50 @@ export default {
 }
 
 
-@media screen and (max-width: 768px) {}
 
 @media screen and (min-width: 770px) {
+    .card__content {
+        text-align: center;
+    }
+
+}
+
+
+@media screen and (min-width: 1220px) {
+    .card {
+        height: 708px;
+    }
+
+    .card__content {
+        text-align: left;
+    }
+
     .eclipses-css {
         display: none;
     }
 
-}
-
-
-@media screen and (min-width: 992px) {
     .eclipses-img {
         display: block;
+        width: 642.98px;
+        top: 48.55px;
+    }
+
+    .slider__button {
+        top: 294px;
+        right: 73.3px;
     }
 
 }
 
 
 
+
+@media screen and (min-width: 770px) and (max-width: 1439px) {
+    .card {
+        position: relative;
+        width: calc(100% - 83px);
+    }
+}
 
 
 
@@ -316,9 +342,7 @@ export default {
 
     .card {
         position: relative;
-        width: calc(100% - 83px);
     }
-
 
     .card {
         width: 1370px;
@@ -394,19 +418,19 @@ export default {
     }
 
 
-    .slider__button {
+    /* .slider__button {
         top: 294px;
         right: 73.3px;
-    }
+    } */
 
     .eclipse-pagecount {
         display: none;
     }
 
     .quote {
-    margin: 0;
-    margin-left: 284px;
-}
+        margin: 0;
+        margin-left: 284px;
+    }
 
 }
 
