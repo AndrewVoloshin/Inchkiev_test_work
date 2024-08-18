@@ -54,7 +54,7 @@ export default {
     },
 
     methods: {
-        async fetchMovies() {
+        async getMovies() {
             try {
                 const response = await fetch(this.moviesUrl);
                 const data = await response.json();
@@ -106,7 +106,7 @@ export default {
         },
     },
     async mounted() {
-        this.movies = await this.fetchMovies();
+        this.movies = await this.getMovies();
         this.addStyleChessPattern()
     }
 };
@@ -201,7 +201,28 @@ h3 {
     gap: 19px;
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 480px) {
+    .sort-buttons__container {
+        margin-left: 20px;
+    }
+
+    .dynamic-blocks__content {
+        padding: 15px 10px;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .block__description {
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
+
+@media (max-width: 806px) {
     .dynamic-blocks__container {
         width: 100%;
         padding: 0 15px;
@@ -240,23 +261,5 @@ h3 {
     }
 }
 
-@media (max-width: 480px) {
-    .sort-buttons__container {
-        margin-left: 20px;
-    }
 
-    .dynamic-blocks__content {
-        padding: 15px 10px;
-    }
-
-    h3 {
-        font-size: 20px;
-        line-height: 28px;
-    }
-
-    .block__description {
-        font-size: 12px;
-        line-height: 14px;
-    }
-}
 </style>

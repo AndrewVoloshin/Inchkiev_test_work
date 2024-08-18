@@ -1,26 +1,26 @@
 <template>
   <div class="app__wrap">
     <div class="app__container">
-      <!-- <SliderApp class="slider"/> -->
+      <SliderApp />
       <FeedbackForm />
-      <!-- <DynamicBlocks/> -->
+      <DynamicBlocks/>
       
     </div>
   </div>
 </template>
 
 <script>
-// import SliderApp from './components/SliderApp'
+import SliderApp from './components/SliderApp'
 import FeedbackForm from './components/FeedbackForm.vue'
-// import DynamicBlocks from './components/DynamicBlocks.vue'
+import DynamicBlocks from './components/DynamicBlocks.vue'
 
 
 export default {
   name: 'App',
   components: {
-    // SliderApp,
+    SliderApp,
     FeedbackForm,
-    // DynamicBlocks
+    DynamicBlocks
   }
 }
 </script>
@@ -32,7 +32,9 @@ body {
 
 *{
   box-sizing: border-box;
+  /* overflow-y: hidden; */
 }
+
 
 
 /* 

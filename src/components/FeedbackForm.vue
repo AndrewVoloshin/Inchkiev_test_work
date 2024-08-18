@@ -388,13 +388,14 @@ input[type="radio"] {
 .feedback-form {
     display: flex;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 62px;
     width: 100%;
 }
 
 .feedback-form__container {
     display: flex;
     gap: 133px;
+    margin-left: 12px;
 }
 
 .greeting__container {
