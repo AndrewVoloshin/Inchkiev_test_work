@@ -322,7 +322,7 @@ input[type="radio"] {
 }
 
 .greeting__content:nth-child(4) {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .greeting__content:nth-child(4) .greeting__label {
@@ -377,8 +377,9 @@ input[type="radio"] {
 }
 
 .custom-radio {
+    display: block;
     font-size: 12px;
-    margin-bottom: 10px;
+    margin-bottom: -8px;
 }
 
 .greeting__label {
@@ -399,7 +400,7 @@ input[type="radio"] {
 }
 
 .greeting__container {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
     margin-left: 1px;
 }
 
