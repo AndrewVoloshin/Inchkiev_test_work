@@ -2,13 +2,16 @@
     <div class="slider">
         <CardSlider class="card1"
                     ref="card1"
+                    :cardNumber="1"
                     @clickedCard="reorderCards(1)" />
-        <!-- <CardSlider class="card2"
+        <CardSlider class="card2"
                     ref="card2"
+                    :cardNumber="2"
                     @clickedCard="reorderCards(2)" />
         <CardSlider class="card3"
                     ref="card3"
-                    @clickedCard="reorderCards(3)" /> -->
+                    :cardNumber="3"
+                    @clickedCard="reorderCards(3)" />
     </div>
 </template>
 
@@ -19,8 +22,10 @@ export default {
     components: {
         CardSlider,
     },
+
     methods: {
         reorderCards(cardClick) {
+            this.cardNumber = cardClick
             const card1 = this.$refs[`card1`];
             const card2 = this.$refs[`card2`];
             const card3 = this.$refs[`card3`];
@@ -120,5 +125,42 @@ export default {
     left: 83px;
     z-index: 1;
     background-color: #AFB3B4;
+}
+
+@media screen and (max-width: 768px) {
+
+    @keyframes moveAndReturn {
+        0% {
+            transform: translateX(0);
+            z-index: 4;
+        }
+
+        50% {
+            transform: translateX(-120vw);
+            z-index: 4;
+        }
+
+        75% {
+            transform: translateX(-80vw);
+            z-index: 0;
+        }
+
+        100% {
+            left: 38px;
+            z-index: 0;
+        }
+    }
+
+    .position2 {
+        left: 19px !important;
+    }
+
+    .card2 {
+        left: 19px;
+    }
+
+    .card3 {
+        left: 38px;
+    }
 }
 </style>
