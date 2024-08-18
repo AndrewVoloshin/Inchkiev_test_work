@@ -31,10 +31,29 @@ export default {
                  alt="star">
         </div>
 
-        <div class="eclipses">
+        <div class="eclipses-img">
             <img src="../assets/png/eclipses.png"
                  alt="eclipses">
         </div>
+
+        <div class="eclipses-css">
+            <div class="eclipse-fillgrey"></div>
+            <div class="eclipse-borderwhite"></div>
+            <div class="eclipse-cutimg">
+                <div class="fullimg">
+                    <img src="../assets/png/dog.png"
+                         alt="dog">
+                </div>
+            </div>
+        </div>
+
+        <div class="eclipse-pagecount">
+            <div class="eclipse-pagecount__text">1/3</div>
+        </div>
+
+
+
+
 
         <div class="slider__button"
              @click="clickedCard">
@@ -89,7 +108,7 @@ export default {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card__subtitle-Ipsum{
+.card__subtitle-Ipsum {
     display: none;
 }
 
@@ -158,7 +177,7 @@ export default {
     width: 100%;
 }
 
-.eclipses {
+.eclipses-img {
     /* width: 642.98px; */
     width: 564.98px;
 
@@ -169,7 +188,7 @@ export default {
     transform: rotate(359deg);
 }
 
-.eclipses img {
+.eclipses-img img {
     position: absolute;
     top: 0;
     left: 0;
@@ -196,16 +215,100 @@ export default {
     width: 100%;
 }
 
+.eclipses-img {
+    display: none;
+}
 
-@media screen and (min-width: 768px) {
-    .card {
-      
-    }
+.eclipse-fillgrey {
+    position: absolute;
+    left: 176.49px;
+    bottom: 133.84px;
+    width: 385.88px;
+    height: 200px;
+    background-color: #AFB3B4;
+    border-radius: 50%;
+    transform: rotate(344.77deg);
+    z-index: 1;
+}
+
+.eclipse-borderwhite {
+    position: absolute;
+    left: 123.48px;
+    bottom: 258.7px;
+    width: 459.68px;
+    height: 200px;
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: rotate(211.36deg);
+    z-index: 2;
+}
+
+.eclipse-cutimg {
+    position: absolute;
+    left: 93.95px;
+    bottom: 136.05px;
+    width: 385.88px;
+    height: 200px;
+    border-radius: 50%;
+    transform: rotate(320.71deg);
+    z-index: 3;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullimg {
+    width: 328px;
+    height: 292px;
+    position: relative;
+    transform: rotate(40.23deg);
+}
+
+.eclipse-cutimg img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.eclipse-pagecount {
+    position: absolute;
+    left: 21px;
+    bottom: 31.72px;
+    width:101.49px ;
+    height: 52.69px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eclipse-pagecount__text {
+    font-size: 12px;
+    font-weight: 700;
+    /* line-height: 64px; */
 }
 
 
 
+@media screen and (min-width: 768px) {
+    .card {}
+}
 
+
+@media screen and (min-width: 1440px) {
+    .card {
+        position: relative;
+        width: calc(100% - 83px);
+    }
+
+    .eclipses-img {
+        display: block;
+    }
+}
 
 
 
@@ -220,7 +323,7 @@ export default {
 }
 
 @media screen and (min-width: 1700px) {
- 
+
     .card__content {
         text-align: center;
     }
@@ -339,7 +442,7 @@ export default {
     width: 100%;
 }
 
-.eclipses {
+.eclipses-img {
     width: 642.98px;
     height: 646.58px;
     position: absolute;
@@ -347,7 +450,7 @@ export default {
     right: 84.02px;
 }
 
-.eclipses img {
+.eclipses-img img {
     position: absolute;
     top: 0;
     left: 0;
@@ -373,5 +476,4 @@ export default {
     bottom: 0;
     width: 100%;
 } */
-
 </style>
