@@ -136,7 +136,7 @@ export default {
     font-weight: 400;
     font-size: 40px;
     margin: 0;
-    margin-left: 235px;
+    margin-left: 236px;
     line-height: 52px;
     margin-bottom: 1px;
 }
@@ -145,15 +145,15 @@ export default {
     font-weight: 400;
     font-size: 40px;
     margin: 0;
-    margin-left: 113px;
-    margin-bottom: 1px;
+    margin-left: 114px;
+    margin-top: -1px;
     line-height: 52px;
 }
 
 .quote {
     font-weight: 500;
     margin: 0;
-    margin-left: 284px;
+    margin-left: 286px;
     font-size: 15px;
     line-height: 150%;
 }
@@ -197,7 +197,7 @@ export default {
     height: 120px;
     position: absolute;
     top: 421px;
-    right: 28.3px;
+    right: 25.9px;
     cursor: pointer;
 }
 
@@ -217,7 +217,7 @@ export default {
 .eclipse-fillgrey {
     position: absolute;
     left: 176.49px;
-    bottom: 133.84px;
+    bottom: 131.84px;
     width: 385.88px;
     height: 200px;
     background-color: #AFB3B4;
@@ -229,7 +229,7 @@ export default {
 .eclipse-borderwhite {
     position: absolute;
     left: 123.48px;
-    bottom: 258.7px;
+    bottom: 255.8px;
     width: 459.68px;
     height: 200px;
     border: 2px solid white;
@@ -241,7 +241,8 @@ export default {
 .eclipse-cutimg {
     position: absolute;
     left: 93.95px;
-    bottom: 136.05px;
+    bottom: 134.05px;
+
     width: 385.88px;
     height: 200px;
     border-radius: 50%;
@@ -251,6 +252,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+  
 }
 
 .fullimg {
@@ -271,7 +273,7 @@ export default {
 .eclipse-pagecount {
     position: absolute;
     left: 21px;
-    bottom: 31.72px;
+    bottom: 31.02px;
     width: 101.49px;
     height: 52.69px;
     border-radius: 50%;
@@ -363,7 +365,7 @@ export default {
 
     .card__subtitle2 {
         font-size: 60px;
-        margin-left: 289px;
+        margin-left: 290px;
         margin-bottom: 12px;
     }
 
@@ -400,6 +402,11 @@ export default {
     .eclipse-pagecount {
         display: none;
     }
+
+    .quote {
+    margin: 0;
+    margin-left: 284px;
+}
 
 }
 
