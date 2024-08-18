@@ -36,10 +36,10 @@ export default {
                 lastName: /^[А-Яа-яҐґЄєЇїІі]+$/,
                 firstName: /^[А-Яа-яҐґЄєЇїІі]+$/,
                 organization: /^[А-Яа-яҐґЄєЇїІі]*$/,
-                country: /^[А-Яа-яҐґЄєЇїІі]+$/,
-                city: /^[А-Яа-яҐґЄєЇїІі]+$/,
-                index: /^\d+$/,
-                address: /^[А-Яа-яҐґЄєЇїІі\d/\-,]+$/,
+                country: /^[А-Яа-яҐґЄєЇїІі]*$/,
+                city: /^[А-Яа-яҐґЄєЇїІі]*$/,
+                index: /^\d*$/,
+                address: /^[А-Яа-яҐґЄєЇїІі\d/\-,]*$/,
                 phone: /^\(\d{3}\) \d{3}-\d{2}-\d{2}$/,
                 email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                 subject: /^[А-Яа-яҐґЄєЇїІі\d\s\-,]*$/,
@@ -203,14 +203,14 @@ export default {
                         </div>
 
                         <div class="contact__content">
-                            <label class="label contact__label">* КРАЇНА</label>
+                            <label class="label contact__label">КРАЇНА</label>
                             <input v-model="formData.country"
                                    :class="{ 'input contact__input error': errors.country }"
                                    type="text"
                                    @input="validateCountry" />
                         </div>
                         <div class="contact__content">
-                            <label class="label contact__label">* МІСТО</label>
+                            <label class="label contact__label">МІСТО</label>
                             <input v-model="formData.city"
                                    :class="{ 'input contact__input error': errors.city }"
                                    type="text"
@@ -218,7 +218,7 @@ export default {
                         </div>
 
                         <div class="contact__content">
-                            <label class="label contact__label">* ІНДЕКС</label>
+                            <label class="label contact__label">ІНДЕКС</label>
                             <input v-model="formData.index"
                                    :class="{ 'input contact__input error': errors.index }"
                                    type="text"
@@ -226,7 +226,7 @@ export default {
                         </div>
 
                         <div class="contact__content">
-                            <label class="label contact__label">* АДРЕСА</label>
+                            <label class="label contact__label">АДРЕСА</label>
                             <input v-model="formData.address"
                                    :class="{ 'input contact__input error': errors.address }"
                                    type="text"
@@ -270,7 +270,7 @@ textarea.error {
 }
 
 .title {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 18px;
 }
 
@@ -281,6 +281,7 @@ textarea.error {
 
 .message__title {
     margin: 0;
+    margin-left: -1px;
     margin-bottom: 18px;
 }
 
@@ -290,9 +291,11 @@ input {
 }
 
 .label {
+
     display: block;
     margin-bottom: 5px;
     font-size: 12px;
+    font-weight: 400;
 
 }
 
@@ -311,28 +314,30 @@ input[type="radio"] {
 }
 
 .greeting__content:nth-child(2) {
-    margin-bottom: 10px;
+    margin-bottom: 11px;
 }
 
 .greeting__content:nth-child(3) {
-    margin-bottom: 16px;
+    margin-bottom: 17px;
 }
 
 .greeting__content:nth-child(4) {
-    margin-bottom: 9px;
+    margin-bottom: 10px;
 }
 
 .greeting__content:nth-child(4) .greeting__label {
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 }
 
 
 .greeting__content:nth-child(2) .greeting__label {
     padding-left: 2px;
+
 }
 
 .greeting__content:nth-child(3) .greeting__label {
     margin-bottom: 1px;
+    margin-left: -1px;
 }
 
 .greeting__content:nth-child(4) .greeting__label {
@@ -377,7 +382,7 @@ input[type="radio"] {
 }
 
 .greeting__label {
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 .feedback-form {
@@ -393,36 +398,77 @@ input[type="radio"] {
 }
 
 .greeting__container {
-    margin-bottom: 39px;
+    margin-bottom: 40px;
+    margin-left: 1px;
 }
 
 .contact__content:nth-child(2) {
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
+
+.contact__content:nth-child(2) .contact__label {
+    margin-bottom: 1px;
+}
+
 
 .contact__content:nth-child(3) {
-    margin-bottom: 20px;
+    margin-bottom: 21px;
 }
+
+.contact__content:nth-child(4) .contact__label {
+    margin-bottom: 2px;
+}
+
 
 .contact__content:nth-child(4) {
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 }
 
+.contact__content:nth-child(5) .contact__label {
+    margin-bottom: 7px;
+}
+
+
 .contact__content:nth-child(5) {
-    margin-bottom: 27px;
+    margin-bottom: 28px;
 }
 
 .contact__content:nth-child(6) {
-    margin-bottom: 23px;
+    margin-bottom: 24px;
 }
 
-.message__container {}
+.contact__content:nth-child(6) .contact__label {
+    margin-bottom: 4px;
+}
+.contact__content:nth-child(7) .contact__label {
+    margin-bottom: 3px;
+}
+
+
+
+.message__container {
+    margin-left: 1px;
+}
 
 .message__title {}
 
-.message__content:nth-child(2) {
-    margin-bottom: 22px;
+.message__label {
+    margin-left: 2px;
+    margin-bottom: 8px;
 }
+
+
+
+
+.message__content:nth-child(2) {
+    margin-bottom: 23px;
+}
+
+.message__content:nth-child(3) .message__label{
+    margin-left: 1px; 
+    margin-bottom: 3px;
+}
+
 
 textarea {
     width: 246px;
@@ -430,26 +476,16 @@ textarea {
 }
 
 .contact__container {
-    margin-bottom: 52px;
+    margin-left: 1px;
+    margin-bottom: 57px;
 }
 
 input,
 textarea {
-    width: 100%;
+    /* width: 100%; */
     box-sizing: border-box;
 }
 
-.title {
-    font-weight: 600;
-    font-size: 18px;
-}
-
-.greeting__title,
-.message__title,
-.contact__title {
-    margin: 0;
-    margin-bottom: 20px;
-}
 
 .greeting__content,
 .message__content,
@@ -462,17 +498,6 @@ textarea.error {
     border: 1px solid #d9534f;
     background-color: #f9d6d5;
 }
-
-.button-submit {
-    width: 100%;
-    height: 40px;
-    color: white;
-    font-size: 18px;
-    background-color: #464646;
-    border: none;
-    cursor: pointer;
-}
-
 
 @media (max-width: 768px) {
     .feedback-form__container {
