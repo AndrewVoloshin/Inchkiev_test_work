@@ -396,7 +396,6 @@ input[type="radio"] {
 .feedback-form__container {
     display: flex;
     gap: 133px;
-    margin-left: 12px;
 }
 
 .greeting__container {

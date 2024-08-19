@@ -128,8 +128,9 @@ export default {
     align-items: center;
     gap: 46px;
     margin-bottom: 37px;
-    padding: 27px 0 33px 40px;
+    padding: 28px 0 32px 28px;
     background-color: #C4C4C4;
+    
 }
 
 .dynamic-blocks__content:first-child {
@@ -176,7 +177,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 79px;
+    margin-top: 88px;
     margin-bottom: 90px;
 }
 
