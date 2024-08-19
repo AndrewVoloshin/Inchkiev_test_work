@@ -418,8 +418,16 @@ export default {
     }
 
     .eclipse-pagecount {
-        display: none;
+        width: 112px;
+        height: 58.14px;
+        left:245px;
+        bottom:55px
     }
+
+    .eclipse-pagecount__text {
+    font-size: 16px;
+    font-weight: 700;
+}
 
     .quote {
         margin: 0;

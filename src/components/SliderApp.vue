@@ -95,30 +95,30 @@ export default {
     }
 
     100% {
-        left: 83px;
+        left: 65px;
         z-index: 0;
     }
 }
 
 .position2 {
-    left: 43px !important;
+    left: 28px !important;
 }
 
 .position1 {
-    left: 0px !important;
+    left: -15px !important;
 }
 
 .card1 {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -15px;
     z-index: 3;
 }
 
 .card2 {
     position: absolute;
     top: 0;
-    left: 43px;
+    left: 28px;
     z-index: 2;
     background-color: #4A989A;
 }
@@ -126,7 +126,7 @@ export default {
 .card3 {
     position: absolute;
     top: 0;
-    left: 83px;
+    left: 65px;
     z-index: 1;
     background-color: #AFB3B4;
 }
