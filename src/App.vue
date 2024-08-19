@@ -3,8 +3,7 @@
     <div class="app__container">
       <SliderApp />
       <FeedbackForm />
-      <DynamicBlocks/>
-      
+      <DynamicBlocks />
     </div>
   </div>
 </template>
@@ -30,16 +29,9 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-*{
+* {
   box-sizing: border-box;
-  /* overflow-y: hidden; */
 }
 
 
-
-/* 
-.app__wrap {
-  display: flex;
-  justify-content: center;
-} */
 </style>

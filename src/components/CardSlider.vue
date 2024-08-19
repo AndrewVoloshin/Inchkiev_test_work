@@ -338,7 +338,7 @@ export default {
 @media screen and (min-width: 769px) and (max-width: 1439px) {
     .card {
         position: relative;
-        width: calc(100% - 84px);
+        width: calc(100% - 65px);
     }
 }
 
@@ -438,7 +438,7 @@ export default {
 @media screen and (min-width: 1441px) {
     .card {
         position: relative;
-        width: calc(100% - 83px);
+        width: calc(100% - 65px);
     }
 }
 
