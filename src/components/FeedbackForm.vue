@@ -301,7 +301,7 @@ input {
 
 .contact__title {
     margin: 0;
-    margin-bottom: 52px;
+    margin-bottom: 58px;
 }
 
 
@@ -478,7 +478,7 @@ textarea {
 
 .contact__container {
     margin-left: 1px;
-    margin-bottom: 57px;
+    margin-bottom: 51px;
 }
 
 input,
