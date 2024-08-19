@@ -8,8 +8,8 @@
 
 ### Clone the repository:
 ```bash
-   git clone https://github.com/your_username/Inchkiev_test_work.git
-   cd project_name
+   git clone https://github.com/AndrewVoloshin/Inchkiev_test_work.git
+   cd Inchkiev_test_work
 ```
 ###  Install dependencies and run the project:
 
