@@ -27,7 +27,6 @@
                         'position1': cardNumber === 2,
                         'position3': cardNumber === 3 && isFirstStart,
                         'init-position': !isFirstStart
-
                     }" />
     </div>
 </template>
@@ -47,8 +46,8 @@ export default {
     },
     methods: {
         reorderCards(cardClick) {
-            this.isFirstStart = true,
-                this.cardNumber = cardClick
+            this.isFirstStart = true
+            this.cardNumber = cardClick
         },
     },
 }
@@ -65,7 +64,6 @@ export default {
 }
 
 .position3 {
-
     animation: moveAndReturn 1s forwards;
 }
 
