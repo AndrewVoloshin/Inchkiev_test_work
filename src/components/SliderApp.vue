@@ -3,15 +3,32 @@
         <CardSlider class="card1"
                     ref="card1"
                     :cardNumber="1"
-                    @clickedCard="reorderCards(1)" />
+                    @clickedCard="reorderCards(1)"
+                    :class="{
+                        'position3': cardNumber === 1,
+                        'position2': cardNumber === 2,
+                        'position1': cardNumber === 3,
+                    }" />
         <CardSlider class="card2"
                     ref="card2"
                     :cardNumber="2"
-                    @clickedCard="reorderCards(2)" />
-        <CardSlider class="card3"
+                    @clickedCard="reorderCards(2)"
+                    :class="{
+                        'position1': cardNumber === 1,
+                        'position3': cardNumber === 2,
+                        'position2': cardNumber === 3,
+                    }" />
+        <CardSlider class="card3 "
                     ref="card3"
                     :cardNumber="3"
-                    @clickedCard="reorderCards(3)" />
+                    @clickedCard="reorderCards(3)"
+                    :class="{
+                        'position2': cardNumber === 1,
+                        'position1': cardNumber === 2,
+                        'position3': cardNumber === 3 && isFirstStart,
+                        'init-position': !isFirstStart
+
+                    }" />
     </div>
 </template>
 
@@ -22,48 +39,16 @@ export default {
     components: {
         CardSlider,
     },
-
+    data() {
+        return {
+            cardNumber: 3,
+            isFirstStart: false,
+        }
+    },
     methods: {
         reorderCards(cardClick) {
-            this.cardNumber = cardClick
-            const card1 = this.$refs[`card1`];
-            const card2 = this.$refs[`card2`];
-            const card3 = this.$refs[`card3`];
-
-            if (cardClick === 1) {
-                this.moveToThirdPosition(card1)
-                this.moveToFirstPosition(card2)
-                this.moveToSecondPosition(card3)
-            }
-
-            if (cardClick === 2) {
-                this.moveToSecondPosition(card1)
-                this.moveToThirdPosition(card2)
-                this.moveToFirstPosition(card3)
-            }
-            if (cardClick === 3) {
-                this.moveToFirstPosition(card1)
-                this.moveToSecondPosition(card2)
-                this.moveToThirdPosition(card3)
-            }
-        },
-
-        moveToFirstPosition(card) {
-            card.$el.style.zIndex = 3;
-            card.$el.classList.add('position1')
-            card.$el.classList.remove('position2')
-        },
-
-        moveToSecondPosition(card) {
-            card.$el.style.zIndex = 2;
-            card.$el.classList.add('position2')
-            card.$el.classList.remove('position3')
-        },
-
-        moveToThirdPosition(card) {
-            card.$el.style.zIndex = 1;
-            card.$el.classList.add('position3')
-            card.$el.classList.remove('position1')
+            this.isFirstStart = true,
+                this.cardNumber = cardClick
         },
     },
 }
@@ -74,13 +59,18 @@ export default {
     height: 900px;
 }
 
+.init-position {
+    left: 65px;
+    z-index: 0;
+}
+
 .position3 {
+
     animation: moveAndReturn 1s forwards;
 }
 
 @keyframes moveAndReturn {
     0% {
-        transform: translateX(0);
         z-index: 4;
     }
 
@@ -102,32 +92,29 @@ export default {
 
 .position2 {
     left: 28px !important;
+    z-index: 2;
+
 }
 
 .position1 {
     left: -15px !important;
+    z-index: 3;
 }
 
 .card1 {
     position: absolute;
     top: 0;
-    left: -15px;
-    z-index: 3;
 }
 
 .card2 {
     position: absolute;
     top: 0;
-    left: 28px;
-    z-index: 2;
     background-color: #4A989A;
 }
 
 .card3 {
     position: absolute;
     top: 0;
-    left: 65px;
-    z-index: 1;
     background-color: #AFB3B4;
 }
 
@@ -150,9 +137,13 @@ export default {
         }
 
         100% {
-            left: 37px;
+            left: 38px;
             z-index: 0;
         }
+    }
+
+    .position1 {
+        left: 0px !important;
     }
 
     .position2 {
@@ -164,7 +155,7 @@ export default {
     }
 
     .card3 {
-        left: 37px;
+        left: 38px;
     }
 
 }

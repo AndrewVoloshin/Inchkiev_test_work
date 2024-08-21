@@ -130,11 +130,7 @@ export default {
     margin-bottom: 37px;
     padding: 28px 0 32px 28px;
     background-color: #C4C4C4;
-    
-}
 
-.dynamic-blocks__content:first-child {
-    border: 1px solid black;
 }
 
 .block__img {
@@ -261,6 +257,4 @@ h3 {
         margin-left: 20px;
     }
 }
-
-
 </style>

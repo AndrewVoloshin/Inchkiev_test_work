@@ -73,10 +73,8 @@ export default {
     position: relative;
     border-radius: 0 65px 65px 0;
     background-color: #027D84;
-    border: 1px solid black;
     overflow: hidden;
     color: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .eclipse {
@@ -380,8 +378,6 @@ export default {
 
     .card__subtitle1 {
         font-size: 60px;
-        text-shadow:
-            0px 4px 4px rgba(0, 0, 0, 0.25);
         margin-bottom: 11px;
         line-height: 70px;
 
