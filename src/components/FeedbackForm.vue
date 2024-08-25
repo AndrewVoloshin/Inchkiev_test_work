@@ -254,7 +254,7 @@ export default {
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
 input.error,
 textarea.error {
     border: 1px solid #d9534f;
@@ -291,12 +291,10 @@ input {
 }
 
 .label {
-
     display: block;
     margin-bottom: 5px;
     font-size: 12px;
     font-weight: 400;
-
 }
 
 .contact__title {
@@ -311,39 +309,33 @@ input[type="radio"] {
 
 .greeting__content {
     padding-left: 1px;
+
+    &:nth-child(2) {
+        margin-bottom: 11px;
+    }
+
+    &:nth-child(3) {
+        margin-bottom: 17px;
+    }
+
+    &:nth-child(4) {
+        margin-bottom: 15px;
+    }
+
+    &:nth-child(2) .greeting__label {
+        padding-left: 2px;
+    }
+
+    &:nth-child(3) .greeting__label {
+        margin-bottom: 1px;
+        margin-left: -1px;
+    }
+
+    &:nth-child(4) .greeting__label {
+        margin-left: -1px;
+        margin-bottom: 6px;
+    }
 }
-
-.greeting__content:nth-child(2) {
-    margin-bottom: 11px;
-}
-
-.greeting__content:nth-child(3) {
-    margin-bottom: 17px;
-}
-
-.greeting__content:nth-child(4) {
-    margin-bottom: 15px;
-}
-
-.greeting__content:nth-child(4) .greeting__label {
-    margin-bottom: 6px;
-}
-
-
-.greeting__content:nth-child(2) .greeting__label {
-    padding-left: 2px;
-
-}
-
-.greeting__content:nth-child(3) .greeting__label {
-    margin-bottom: 1px;
-    margin-left: -1px;
-}
-
-.greeting__content:nth-child(4) .greeting__label {
-    margin-left: -1px;
-}
-
 
 .custom-radio input[type="radio"] {
     position: absolute;
@@ -403,73 +395,67 @@ input[type="radio"] {
     margin-left: 1px;
 }
 
-.contact__content:nth-child(2) {
-    margin-bottom: 18px;
+.contact__content {
+    &:nth-child(2) {
+        margin-bottom: 18px;
+    }
+
+    &:nth-child(2) .contact__label {
+        margin-bottom: 1px;
+    }
+
+    &:nth-child(3) {
+        margin-bottom: 21px;
+    }
+
+    &:nth-child(4) {
+        margin-bottom: 26px;
+    }
+
+    &:nth-child(4) .contact__label {
+        margin-bottom: 2px;
+    }
+
+    &:nth-child(5) {
+        margin-bottom: 28px;
+    }
+
+    &:nth-child(5) .contact__label {
+        margin-bottom: 7px;
+    }
+
+    &:nth-child(6) {
+        margin-bottom: 24px;
+    }
+
+    &:nth-child(6) .contact__label {
+        margin-bottom: 4px;
+    }
+
+    &:nth-child(7) .contact__label {
+        margin-bottom: 3px;
+    }
 }
-
-.contact__content:nth-child(2) .contact__label {
-    margin-bottom: 1px;
-}
-
-
-.contact__content:nth-child(3) {
-    margin-bottom: 21px;
-}
-
-.contact__content:nth-child(4) .contact__label {
-    margin-bottom: 2px;
-}
-
-
-.contact__content:nth-child(4) {
-    margin-bottom: 26px;
-}
-
-.contact__content:nth-child(5) .contact__label {
-    margin-bottom: 7px;
-}
-
-
-.contact__content:nth-child(5) {
-    margin-bottom: 28px;
-}
-
-.contact__content:nth-child(6) {
-    margin-bottom: 24px;
-}
-
-.contact__content:nth-child(6) .contact__label {
-    margin-bottom: 4px;
-}
-.contact__content:nth-child(7) .contact__label {
-    margin-bottom: 3px;
-}
-
-
 
 .message__container {
     margin-left: 1px;
 }
-
-.message__title {}
 
 .message__label {
     margin-left: 2px;
     margin-bottom: 8px;
 }
 
+.message__content {
+    &:nth-child(2) {
+        margin-bottom: 23px;
+    }
 
-
-
-.message__content:nth-child(2) {
-    margin-bottom: 23px;
+    &:nth-child(3) .message__label {
+        margin-left: 1px;
+        margin-bottom: 3px;
+    }
 }
-
-.message__content:nth-child(3) .message__label{
-    margin-left: 1px; 
-    margin-bottom: 3px;
-}
-
 
 textarea {
     width: 246px;
@@ -480,13 +466,6 @@ textarea {
     margin-left: 1px;
     margin-bottom: 51px;
 }
-
-input,
-textarea {
-    /* width: 100%; */
-    box-sizing: border-box;
-}
-
 
 .greeting__content,
 .message__content,
@@ -500,21 +479,6 @@ textarea.error {
     background-color: #f9d6d5;
 }
 
-@media (max-width: 768px) {
-    .feedback-form__container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .column {
-        max-width: 100%;
-        flex: 1 1 100%;
-    }
-
-    .button-submit {
-        width: 100%;
-    }
-}
 
 @media (max-width: 480px) {
     .title {
@@ -533,6 +497,22 @@ textarea.error {
     .button-submit {
         height: 50px;
         font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .feedback-form__container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .column {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .button-submit {
+        width: 100%;
     }
 }
 </style>

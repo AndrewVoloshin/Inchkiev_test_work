@@ -5,5 +5,12 @@ module.exports = defineConfig({
 
 
 module.exports = {
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `@import "@/assets/styles/index.scss"; @import "@/assets/styles/mixins.scss";`
+      }
+    }
+  },
   publicPath: process.env.NODE_ENV === 'production' ? '/Inchkiev_test_work/' : '/'
 }

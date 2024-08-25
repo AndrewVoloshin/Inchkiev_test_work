@@ -18,17 +18,17 @@ export default {
         <div class="eclipse">
             <div class="eclipse__paint">
             </div>
-            <p class="eclipse__text">LOREM IPSUM DOLOR SIT AMET</p>
+            <p class="eclipse__text">lorem ipsum dolor sit amet</p>
         </div>
 
         <div class="card__content">
-            <h1 class="card__title">LOREM IPSUM</h1>
-            <p class="card__subtitle1">LOREM IPSUM DOLOR &mdash;</p>
-            <p class="card__subtitle2">LOREM</p>
-            <p class="card__subtitle3">IPSUM!</p>
-            <p class="card__subtitle-Ipsum">IPSUM !</p>
-            <p class="quote">LOREM IPSUM DOLOR SIT AMET,</p>
-            <p class="quote">CONSECTETUR ADIPISCING ELIT</p>
+            <h1 class="card__title">lorem ipsum</h1>
+            <p class="card__subtitle1">lorem ipsum dolor &mdash;</p>
+            <p class="card__subtitle2">lorem</p>
+            <p class="card__subtitle3">ipsum!</p>
+            <p class="card__subtitle-ipsum">ipsum !</p>
+            <p class="quote">lorem ipsum dolor sit amet,</p>
+            <p class="quote">consectetur adipiscing elit</p>
         </div>
 
         <div class="star">
@@ -66,7 +66,11 @@ export default {
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/assets/styles/mixins';
+
+$text-color: #FFFFFF;
+
 .card {
     width: 730px;
     height: 900px;
@@ -74,7 +78,31 @@ export default {
     border-radius: 0 65px 65px 0;
     background-color: #027D84;
     overflow: hidden;
-    color: #FFFFFF;
+    color: $text-color;
+
+    &__subtitle1,
+    &__subtitle2,
+    &__subtitle3 {
+        font-weight: 400;
+        font-size: 40px;
+        margin: 0;
+        line-height: 52px;
+        text-transform: uppercase;
+    }
+
+    &__subtitle1 {
+        margin-left: 43px;
+    }
+
+    &__subtitle2 {
+        margin-left: 236px;
+        margin-bottom: 1px;
+    }
+
+    &__subtitle3 {
+        margin-left: 114px;
+        margin-top: -1px;
+    }
 }
 
 .eclipse {
@@ -95,19 +123,19 @@ export default {
     position: absolute;
     bottom: 30.43px;
     left: 62.19px;
-    color: #FFFFFF;
+    color: $text-color;
     margin: 0;
     z-index: 1;
     font-size: 18px;
     font-weight: 500;
     text-shadow:
         4px 4px 4px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
 }
 
-.card__subtitle-Ipsum {
+.card__subtitle-ipsum {
     display: none;
 }
-
 
 .card__content {
     padding: 107px 74px 0px 82px;
@@ -119,32 +147,7 @@ export default {
     line-height: 64px;
     margin: 0;
     margin-bottom: -7px;
-}
-
-.card__subtitle1 {
-    font-weight: 400;
-    font-size: 40px;
-    margin: 0;
-    margin-left: 43px;
-    line-height: 52px;
-}
-
-.card__subtitle2 {
-    font-weight: 400;
-    font-size: 40px;
-    margin: 0;
-    margin-left: 236px;
-    line-height: 52px;
-    margin-bottom: 1px;
-}
-
-.card__subtitle3 {
-    font-weight: 400;
-    font-size: 40px;
-    margin: 0;
-    margin-left: 114px;
-    margin-top: -1px;
-    line-height: 52px;
+    text-transform: uppercase;
 }
 
 .quote {
@@ -153,6 +156,7 @@ export default {
     margin-left: 286px;
     font-size: 15px;
     line-height: 150%;
+    text-transform: uppercase;
 }
 
 .star {
@@ -161,15 +165,10 @@ export default {
     position: absolute;
     top: 242px;
     left: -49px;
-}
 
-.star img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    & img {
+        @include image-full-cover;
+    }
 }
 
 .eclipses-img {
@@ -178,15 +177,10 @@ export default {
     position: absolute;
     top: 285.55px;
     right: 84.02px;
-}
 
-.eclipses-img img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    & img {
+        @include image-full-cover;
+    }
 }
 
 .slider__button {
@@ -196,15 +190,10 @@ export default {
     top: 421px;
     right: 25.9px;
     cursor: pointer;
-}
 
-.slider__button img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    & img {
+        @include image-full-cover;
+    }
 }
 
 .eclipses-img {
@@ -225,8 +214,8 @@ export default {
 
 .eclipse-borderwhite {
     position: absolute;
-    left: 123.48px;
-    bottom: 255.8px;
+    left: 125.48px;
+    bottom: 257.8px;
     width: 459.68px;
     height: 200px;
     border: 2px solid white;
@@ -237,9 +226,8 @@ export default {
 
 .eclipse-cutimg {
     position: absolute;
-    left: 93.95px;
-    bottom: 134.05px;
-
+    left: 94.95px;
+    bottom: 136.05px;
     width: 385.88px;
     height: 200px;
     border-radius: 50%;
@@ -249,6 +237,10 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    & img {
+        @include image-full-cover;
+    }
 }
 
 .fullimg {
@@ -258,18 +250,10 @@ export default {
     transform: rotate(40.23deg);
 }
 
-.eclipse-cutimg img {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-}
-
 .eclipse-pagecount {
     position: absolute;
     left: 21px;
-    bottom: 31.02px;
+    bottom: 33.02px;
     width: 101.49px;
     height: 52.69px;
     border-radius: 50%;
@@ -284,6 +268,17 @@ export default {
     font-weight: 700;
 }
 
+
+@media screen and (max-width: 766px) {
+    .card {
+        width: 100%;
+    }
+
+    .card__content {
+        width: 100%;
+        padding: 107px 0px 0px;
+    }
+}
 
 
 @media screen and (min-width: 770px) {
@@ -316,21 +311,7 @@ export default {
         top: 294px;
         right: 73.3px;
     }
-
 }
-
-@media screen and (max-width: 766px) {
-    .card{
-        width: 100%;
-
-    }
-
-    .card__content{
-        width: 100%;
-        padding: 107px  0px 0px;
-    }
-}
-
 
 
 @media screen and (min-width: 769px) and (max-width: 1439px) {
@@ -341,13 +322,9 @@ export default {
 }
 
 
-
 @media screen and (min-width: 1440px) {
     .card {
         position: relative;
-    }
-
-    .card {
         width: 1370px;
         height: 708px;
         border-radius: 0 90px 90px 0;
@@ -380,7 +357,6 @@ export default {
         font-size: 60px;
         margin-bottom: 11px;
         line-height: 70px;
-
     }
 
     .card__subtitle2 {
@@ -393,12 +369,13 @@ export default {
         display: none;
     }
 
-    .card__subtitle-Ipsum {
+    .card__subtitle-ipsum {
         display: block;
         font-size: 60px;
         margin: 0;
         margin-left: 141px;
         margin-bottom: 41px;
+        text-transform: uppercase;
     }
 
     .star {
@@ -416,14 +393,14 @@ export default {
     .eclipse-pagecount {
         width: 112px;
         height: 58.14px;
-        left:245px;
-        bottom:55px
+        left: 245px;
+        bottom: 56px
     }
 
     .eclipse-pagecount__text {
-    font-size: 16px;
-    font-weight: 700;
-}
+        font-size: 16px;
+        font-weight: 700;
+    }
 
     .quote {
         margin: 0;
@@ -431,12 +408,14 @@ export default {
     }
 }
 
+
 @media screen and (min-width: 1441px) {
     .card {
         position: relative;
         width: calc(100% - 65px);
     }
 }
+
 
 @media screen and (min-width: 1700px) {
     .card__content {
