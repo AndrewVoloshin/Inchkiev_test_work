@@ -1,3 +1,26 @@
+<script>
+import CardSlider from './CardSlider'
+
+export default {
+    components: {
+        CardSlider,
+    },
+    data() {
+        return {
+            cardNumber: 3,
+            isFirstStart: false,
+        }
+    },
+    methods: {
+        reorderCards(cardClick) {
+            this.isFirstStart = true
+            this.cardNumber = cardClick
+        },
+    },
+}
+</script>
+
+
 <template>
     <div class="slider">
         <CardSlider class="card1"
@@ -31,27 +54,6 @@
     </div>
 </template>
 
-<script>
-import CardSlider from './CardSlider'
-
-export default {
-    components: {
-        CardSlider,
-    },
-    data() {
-        return {
-            cardNumber: 3,
-            isFirstStart: false,
-        }
-    },
-    methods: {
-        reorderCards(cardClick) {
-            this.isFirstStart = true
-            this.cardNumber = cardClick
-        },
-    },
-}
-</script>
 
 <style scoped lang="scss">
 .slider {
