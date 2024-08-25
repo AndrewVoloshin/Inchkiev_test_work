@@ -18,17 +18,17 @@ export default {
         <div class="eclipse">
             <div class="eclipse__paint">
             </div>
-            <p class="eclipse__text">LOREM IPSUM DOLOR SIT AMET</p>
+            <p class="eclipse__text">lorem ipsum dolor sit amet</p>
         </div>
 
         <div class="card__content">
-            <h1 class="card__title">LOREM IPSUM</h1>
-            <p class="card__subtitle1">LOREM IPSUM DOLOR &mdash;</p>
-            <p class="card__subtitle2">LOREM</p>
-            <p class="card__subtitle3">IPSUM!</p>
-            <p class="card__subtitle-ipsum">IPSUM !</p>
-            <p class="quote">LOREM IPSUM DOLOR SIT AMET,</p>
-            <p class="quote">CONSECTETUR ADIPISCING ELIT</p>
+            <h1 class="card__title">lorem ipsum</h1>
+            <p class="card__subtitle1">lorem ipsum dolor &mdash;</p>
+            <p class="card__subtitle2">lorem</p>
+            <p class="card__subtitle3">ipsum!</p>
+            <p class="card__subtitle-ipsum">ipsum !</p>
+            <p class="quote">lorem ipsum dolor sit amet,</p>
+            <p class="quote">consectetur adipiscing elit</p>
         </div>
 
         <div class="star">
@@ -77,6 +77,30 @@ export default {
     background-color: #027D84;
     overflow: hidden;
     color: #FFFFFF;
+
+    &__subtitle1,
+    &__subtitle2,
+    &__subtitle3 {
+        font-weight: 400;
+        font-size: 40px;
+        margin: 0;
+        line-height: 52px;
+        text-transform: uppercase;
+    }
+
+    &__subtitle1 {
+        margin-left: 43px;
+    }
+
+    &__subtitle2 {
+        margin-left: 236px;
+        margin-bottom: 1px;
+    }
+
+    &__subtitle3 {
+        margin-left: 114px;
+        margin-top: -1px;
+    }
 }
 
 .eclipse {
@@ -104,6 +128,7 @@ export default {
     font-weight: 500;
     text-shadow:
         4px 4px 4px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
 }
 
 .card__subtitle-ipsum {
@@ -120,32 +145,7 @@ export default {
     line-height: 64px;
     margin: 0;
     margin-bottom: -7px;
-}
-
-.card__subtitle1 {
-    font-weight: 400;
-    font-size: 40px;
-    margin: 0;
-    margin-left: 43px;
-    line-height: 52px;
-}
-
-.card__subtitle2 {
-    font-weight: 400;
-    font-size: 40px;
-    margin: 0;
-    margin-left: 236px;
-    line-height: 52px;
-    margin-bottom: 1px;
-}
-
-.card__subtitle3 {
-    font-weight: 400;
-    font-size: 40px;
-    margin: 0;
-    margin-left: 114px;
-    margin-top: -1px;
-    line-height: 52px;
+    text-transform: uppercase;
 }
 
 .quote {
@@ -154,6 +154,7 @@ export default {
     margin-left: 286px;
     font-size: 15px;
     line-height: 150%;
+    text-transform: uppercase;
 }
 
 .star {
@@ -322,9 +323,6 @@ export default {
 @media screen and (min-width: 1440px) {
     .card {
         position: relative;
-    }
-
-    .card {
         width: 1370px;
         height: 708px;
         border-radius: 0 90px 90px 0;
@@ -375,6 +373,7 @@ export default {
         margin: 0;
         margin-left: 141px;
         margin-bottom: 41px;
+        text-transform: uppercase;
     }
 
     .star {
@@ -421,6 +420,4 @@ export default {
         text-align: center;
     }
 }
-
-
 </style>
