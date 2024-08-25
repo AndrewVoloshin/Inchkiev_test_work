@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .slider {
     height: 900px;
 }

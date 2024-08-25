@@ -26,7 +26,7 @@ export default {
             <p class="card__subtitle1">LOREM IPSUM DOLOR &mdash;</p>
             <p class="card__subtitle2">LOREM</p>
             <p class="card__subtitle3">IPSUM!</p>
-            <p class="card__subtitle-Ipsum">IPSUM !</p>
+            <p class="card__subtitle-ipsum">IPSUM !</p>
             <p class="quote">LOREM IPSUM DOLOR SIT AMET,</p>
             <p class="quote">CONSECTETUR ADIPISCING ELIT</p>
         </div>
@@ -66,7 +66,9 @@ export default {
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/assets/styles/mixins';
+
 .card {
     width: 730px;
     height: 900px;
@@ -104,10 +106,9 @@ export default {
         4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.card__subtitle-Ipsum {
+.card__subtitle-ipsum {
     display: none;
 }
-
 
 .card__content {
     padding: 107px 74px 0px 82px;
@@ -161,15 +162,10 @@ export default {
     position: absolute;
     top: 242px;
     left: -49px;
-}
 
-.star img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    & img {
+        @include image-full-cover;
+    }
 }
 
 .eclipses-img {
@@ -178,15 +174,10 @@ export default {
     position: absolute;
     top: 285.55px;
     right: 84.02px;
-}
 
-.eclipses-img img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    & img {
+        @include image-full-cover;
+    }
 }
 
 .slider__button {
@@ -196,15 +187,10 @@ export default {
     top: 421px;
     right: 25.9px;
     cursor: pointer;
-}
 
-.slider__button img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    & img {
+        @include image-full-cover;
+    }
 }
 
 .eclipses-img {
@@ -239,7 +225,6 @@ export default {
     position: absolute;
     left: 93.95px;
     bottom: 134.05px;
-
     width: 385.88px;
     height: 200px;
     border-radius: 50%;
@@ -249,6 +234,10 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    & img {
+        @include image-full-cover;
+    }
 }
 
 .fullimg {
@@ -256,14 +245,6 @@ export default {
     height: 292px;
     position: relative;
     transform: rotate(40.23deg);
-}
-
-.eclipse-cutimg img {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
 }
 
 .eclipse-pagecount {
@@ -284,6 +265,17 @@ export default {
     font-weight: 700;
 }
 
+
+@media screen and (max-width: 766px) {
+    .card {
+        width: 100%;
+    }
+
+    .card__content {
+        width: 100%;
+        padding: 107px 0px 0px;
+    }
+}
 
 
 @media screen and (min-width: 770px) {
@@ -316,21 +308,7 @@ export default {
         top: 294px;
         right: 73.3px;
     }
-
 }
-
-@media screen and (max-width: 766px) {
-    .card{
-        width: 100%;
-
-    }
-
-    .card__content{
-        width: 100%;
-        padding: 107px  0px 0px;
-    }
-}
-
 
 
 @media screen and (min-width: 769px) and (max-width: 1439px) {
@@ -339,7 +317,6 @@ export default {
         width: calc(100% - 65px);
     }
 }
-
 
 
 @media screen and (min-width: 1440px) {
@@ -380,7 +357,6 @@ export default {
         font-size: 60px;
         margin-bottom: 11px;
         line-height: 70px;
-
     }
 
     .card__subtitle2 {
@@ -393,7 +369,7 @@ export default {
         display: none;
     }
 
-    .card__subtitle-Ipsum {
+    .card__subtitle-ipsum {
         display: block;
         font-size: 60px;
         margin: 0;
@@ -416,20 +392,21 @@ export default {
     .eclipse-pagecount {
         width: 112px;
         height: 58.14px;
-        left:245px;
-        bottom:55px
+        left: 245px;
+        bottom: 55px
     }
 
     .eclipse-pagecount__text {
-    font-size: 16px;
-    font-weight: 700;
-}
+        font-size: 16px;
+        font-weight: 700;
+    }
 
     .quote {
         margin: 0;
         margin-left: 284px;
     }
 }
+
 
 @media screen and (min-width: 1441px) {
     .card {
@@ -438,9 +415,12 @@ export default {
     }
 }
 
+
 @media screen and (min-width: 1700px) {
     .card__content {
         text-align: center;
     }
 }
+
+
 </style>
