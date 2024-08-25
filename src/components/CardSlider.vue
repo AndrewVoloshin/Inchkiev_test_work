@@ -69,6 +69,8 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/styles/mixins';
 
+$text-color: #FFFFFF;
+
 .card {
     width: 730px;
     height: 900px;
@@ -76,7 +78,7 @@ export default {
     border-radius: 0 65px 65px 0;
     background-color: #027D84;
     overflow: hidden;
-    color: #FFFFFF;
+    color: $text-color;
 
     &__subtitle1,
     &__subtitle2,
@@ -121,7 +123,7 @@ export default {
     position: absolute;
     bottom: 30.43px;
     left: 62.19px;
-    color: #FFFFFF;
+    color: $text-color;
     margin: 0;
     z-index: 1;
     font-size: 18px;
@@ -212,8 +214,8 @@ export default {
 
 .eclipse-borderwhite {
     position: absolute;
-    left: 123.48px;
-    bottom: 255.8px;
+    left: 125.48px;
+    bottom: 257.8px;
     width: 459.68px;
     height: 200px;
     border: 2px solid white;
@@ -224,8 +226,8 @@ export default {
 
 .eclipse-cutimg {
     position: absolute;
-    left: 93.95px;
-    bottom: 134.05px;
+    left: 94.95px;
+    bottom: 136.05px;
     width: 385.88px;
     height: 200px;
     border-radius: 50%;
@@ -251,7 +253,7 @@ export default {
 .eclipse-pagecount {
     position: absolute;
     left: 21px;
-    bottom: 31.02px;
+    bottom: 33.02px;
     width: 101.49px;
     height: 52.69px;
     border-radius: 50%;
@@ -392,7 +394,7 @@ export default {
         width: 112px;
         height: 58.14px;
         left: 245px;
-        bottom: 55px
+        bottom: 56px
     }
 
     .eclipse-pagecount__text {
