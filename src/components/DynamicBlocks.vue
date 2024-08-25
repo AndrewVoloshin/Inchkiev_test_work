@@ -1,47 +1,3 @@
-<template>
-
-    <div class="sort-buttons">
-        <div class="sort-buttons__container">
-            <label class="sort-button">
-                <input type="radio"
-                       name="sort"
-                       @change="sortByAlphabetically()" />
-                відсортувати блоки за заголовком відповідно до алфавітного порядку
-            </label>
-            <label class="sort-button">
-                <input type="radio"
-                       name="sort"
-                       @change="sortByPicLeftT()" />
-                вивести всі блоки у форматі "зображення - зліва, текст - справа"
-            </label>
-            <label class="sort-button">
-                <input type="radio"
-                       name="sort"
-                       @change="sortByChessPattern()" />
-                вивести всі блоки у форматі "зображення - зліва, текст - справа" і навпаки в шаховому порядку
-            </label>
-        </div>
-    </div>
-
-    <div class="dynamic-blocks">
-        <div class="dynamic-blocks__container">
-            <div class="dynamic-blocks__content"
-                 v-for="movie in movies"
-                 :key="movie.id">
-                <div class="block__img">
-                    <img :src='this.picUrl + movie.poster_path'
-                         :alt="movie.title" />
-                </div>
-                <div class="block__text">
-                    <h3>{{ movie.title }}</h3>
-                    <p class="block__description">{{ movie.overview }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</template>
-
 <script>
 export default {
     data() {
@@ -75,7 +31,6 @@ export default {
                 document.head.removeChild(this.styleChessPattern);
                 this.styleChessPattern = null;
             }
-
         },
 
         sortByChessPattern() {
@@ -112,7 +67,55 @@ export default {
 };
 </script>
 
-<style scoped>
+
+<template>
+
+    <div class="sort-buttons">
+        <div class="sort-buttons__container">
+            <label class="sort-button">
+                <input type="radio"
+                       name="sort"
+                       @change="sortByAlphabetically()" />
+                відсортувати блоки за заголовком відповідно до алфавітного порядку
+            </label>
+            <label class="sort-button">
+                <input type="radio"
+                       name="sort"
+                       @change="sortByPicLeftT()" />
+                вивести всі блоки у форматі "зображення - зліва, текст - справа"
+            </label>
+            <label class="sort-button">
+                <input type="radio"
+                       name="sort"
+                       @change="sortByChessPattern()" />
+                вивести всі блоки у форматі "зображення - зліва, текст - справа" і навпаки в шаховому порядку
+            </label>
+        </div>
+    </div>
+
+    <div class="dynamic-blocks">
+        <div class="dynamic-blocks__container">
+            <div class="dynamic-blocks__content"
+                 v-for="movie in movies"
+                 :key="movie.id">
+                <div class="block__img">
+                    <img :src='this.picUrl + movie.poster_path'
+                         :alt="movie.title" />
+                </div>
+                <div class="block__text">
+                    <h3 class="block__title">{{ movie.title }}</h3>
+                    <p class="block__description">{{ movie.overview }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+
+<style scoped lang="scss">
+@import '@/assets/styles/mixins';
+
 .dynamic-blocks {
     display: flex;
     justify-content: center;
@@ -138,17 +141,13 @@ export default {
     width: 380px;
     height: 264px;
     flex-shrink: 0;
+
+    & img {
+        @include image-full-cover;
+    }
 }
 
-.block__img img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-h3 {
+.block__title {
     font-size: 30px;
     line-height: 64px;
     font-weight: 400px;
@@ -208,7 +207,7 @@ h3 {
         padding: 15px 10px;
     }
 
-    h3 {
+    .block__title {
         font-size: 20px;
         line-height: 28px;
     }
@@ -248,7 +247,7 @@ h3 {
         font-size: 14px;
     }
 
-    h3 {
+    .block__title {
         font-size: 24px;
         line-height: 32px;
     }
